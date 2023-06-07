@@ -14,7 +14,11 @@
         <nav>
             <h1>Recipe App</h1>
             <form>
-                <input type="text" placeholder="Search for recipes..." class="searchBox">
+                <input type="text" id="searchBox" list="suggestions" placeholder="Search...">
+                <datalist id="suggestions">
+                    <!-- Auto-suggestions will be dynamically added here -->
+                </datalist>
+
                 <button type="submit" class="searchBtn">Search</button>
             </form>
         </nav>

@@ -4,26 +4,26 @@ const recipeContainer = document.querySelector('.recipe-container')
 const recipeDetailsContent = document.querySelector('.recipe-details-content');
 const recipeCloseBtn = document.querySelector('.recipe-closeBtn');
 // Array of example suggestions
-const suggestions = ['Apam Balik', 'Burger', 'Cake', 'Dal Fry', 'Pasta', , 'Sandwich'];
+const suggestions = ['Apam Balik', 'Adobo', 'Biryani', 'Burger', 'Cake', 'Custard', 'Dal Fry', 'Pasta', 'Sandwich'];
 
 // Get the search box element
 
 // Event listener for input changes
-searchBox.addEventListener('input', function() {
-  const inputText = searchBox.value.toLowerCase();
-  const filteredSuggestions = suggestions.filter(function(suggestion) {
-    return suggestion.toLowerCase().startsWith(inputText);
-  });
-  
-  // Clear the previous suggestions
-  document.getElementById('suggestions').innerHTML = '';
+searchBox.addEventListener('input', function () {
+    const inputText = searchBox.value.toLowerCase();
+    const filteredSuggestions = suggestions.filter(function (suggestion) {
+        return suggestion.toLowerCase().startsWith(inputText);
+    });
 
-  // Add the filtered suggestions to the datalist
-  filteredSuggestions.forEach(function(suggestion) {
-    const option = document.createElement('option');
-    option.value = suggestion;
-    document.getElementById('suggestions').appendChild(option);
-  });
+    // Clear the previous suggestions
+    document.getElementById('suggestions').innerHTML = '';
+
+    // Add the filtered suggestions to the datalist
+    filteredSuggestions.forEach(function (suggestion) {
+        const option = document.createElement('option');
+        option.value = suggestion;
+        document.getElementById('suggestions').appendChild(option);
+    });
 });
 
 const fetchRecipes = async (query) => {
@@ -54,7 +54,7 @@ const fetchRecipes = async (query) => {
         })
     }
     catch (error) {
-        recipeContainer.innerHTML = "<h2> Search correct recipe.</h2>"
+        recipeContainer.innerHTML = "<h2>This recipe is not in our list.</h2>"
     }
 }
 
